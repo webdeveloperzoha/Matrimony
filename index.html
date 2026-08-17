@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sindoor Matrimony</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?
+ 
+  family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <style>
+    
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-wrapper">
+      <a class="brand" onclick="navigateTo('home')">
+        <i data-lucide="heart"></i>
+        <span>Sindoor Matrimony</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a id="nav-browse" onclick="navigateTo('browse')">Browse profiles</a></li>
+          <li><a id="nav-stories" onclick="navigateTo('stories')">Success stories</a></li>
+          <li><a id="nav-membership" onclick="navigateTo('membership')">Membership</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-auth">
+        <button type="button" class="btn-login" onclick="openModal('loginModal')">Log in</button>
+        <button type="button" class="btn-primary" onclick="openModal('registerModal')">Register free</button>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileDrawer" class="mobile-drawer">
+    <a onclick="navigateTo('home'); toggleMobileMenu();">Home</a>
+    <a onclick="navigateTo('browse'); toggleMobileMenu();">Browse profiles</a>
+    <a onclick="navigateTo('stories'); toggleMobileMenu();">Success stories</a>
+    <a onclick="navigateTo('membership'); toggleMobileMenu();">Membership</a>
+    <a onclick="openModal('loginModal'); toggleMobileMenu();">Log in</a>
+    <a onclick="openModal('registerModal'); toggleMobileMenu();" style="color: var(--primary-burgundy); font-weight: 600;">Register free</a>
+  </div>
+
+  <!-- ==================== PAGE 1: HOME ==================== -->
+  <main id="page-home" class="page-view active">
+    <!-- 1. Hero Slider Section -->
+    <section class="hero-slider-container" id="heroSlider" onmouseenter="pauseHeroSlider()" onmouseleave="startHeroSlider()">
+      <!-- Slide 1 -->
+      <div class="hero-slide hero-slide-1 active">
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-tagline">Since the first blessing</p>
+            <h1 class="hero-title serif">Where families meet before hearts settle.</h1>
+            <p class="hero-description">
+              Screened profiles, private photos, and community-aware matchmaking — built for people who are serious about marriage, not swiping.
+            </p>
+
+            <div class="hero-buttons">
+              <button type="button" class="btn-primary" onclick="openModal('registerModal')">Register free</button>
+              <a onclick="navigateTo('browse')" class="btn-secondary">Browse profiles</a>
+            </div>
+
+            <div class="trust-badges">
+              <div class="trust-item">
+                <i data-lucide="shield-check"></i>
+                <span>Manually screened profiles</span>
+              </div>
+              <div class="trust-item">
+                <i data-lucide="badge-check"></i>
+                <span>Phone & ID verification badges</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide hero-slide-2">
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-tagline">Traditions Meet Tomorrow</p>
+            <h1 class="hero-title serif">Discover matches that truly align with your values.</h1>
+            <p class="hero-description">
+              Filter with accuracy across education, profession, family background, and horoscopes for trusted lifelong companionship.
+            </p>
+
+            <div class="hero-buttons">
+              <button type="button" class="btn-primary" onclick="openModal('registerModal')">Join Sindoor</button>
+              <a onclick="navigateTo('membership')" class="btn-secondary">Explore Plans</a>
+            </div>
+
+            <div class="trust-badges">
+              <div class="trust-item">
+                <i data-lucide="lock"></i>
+                <span>100% Privacy Control</span>
+              </div>
+              <div class="trust-item">
+                <i data-lucide="sparkles"></i>
+                <span>AI-Powered Recommendations</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide hero-slide-3">
+        <div class="container">
+          <div class="hero-content">
+            <p class="hero-tagline">Trusted by Thousands</p>
+            <h1 class="hero-title serif">Celebrate meaningful beginnings with peace of mind.</h1>
+            <p class="hero-description">
+              Over 10,000+ verified introductions turning into lifelong vows. Start your journey with personalized matchmaking assistance.
+            </p>
+
+            <div class="hero-buttons">
+              <button type="button" class="btn-primary" onclick="openModal('registerModal')">Register Free</button>
+              <a onclick="navigateTo('stories')" class="btn-secondary">Read Stories</a>
+            </div>
+
+            <div class="trust-badges">
+              <div class="trust-item">
+                <i data-lucide="user-check"></i>
+                <span>Dedicated Relationship Managers</span>
+              </div>
+              <div class="trust-item">
+                <i data-lucide="heart-handshake"></i>
+                <span>Respectful Introductions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Arrows -->
+      <button class="slider-nav-btn slider-prev" onclick="changeHeroSlide(-1)" aria-label="Previous Slide">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button class="slider-nav-btn slider-next" onclick="changeHeroSlide(1)" aria-label="Next Slide">
+        <i data-lucide="chevron-right"></i>
+      </button>
+
+      <!-- Slider Dots -->
+      <div class="slider-dots">
+        <button class="slider-dot active" onclick="goToHeroSlide(0)" aria-label="Slide 1"></button>
+        <button class="slider-dot" onclick="goToHeroSlide(1)" aria-label="Slide 2"></button>
+        <button class="slider-dot" onclick="goToHeroSlide(2)" aria-label="Slide 3"></button>
+      </div>
+    </section>
+
+    <!-- 2. Trust Stats Counter Bar -->
+    <section class="stats-bar">
+      <div class="container">
+        <div class="stats-grid">
+          <div>
+            <div class="stat-number serif">45,000+</div>
+            <div class="stat-label">Verified Profiles</div>
+          </div>
+          <div>
+            <div class="stat-number serif">12,500+</div>
+            <div class="stat-label">Happy Marriages</div>
+          </div>
+          <div>
+            <div class="stat-number serif">100%</div>
+            <div class="stat-label">Manual Screening</div>
+          </div>
+          <div>
+            <div class="stat-number serif">15+ Yrs</div>
+            <div class="stat-label">Trusted Matchmaking</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. How It Works Section -->
+    <section class="section-how">
+      <div class="container">
+        <h2 class="section-title serif">How it works</h2>
+
+        <div class="cards-grid">
+          <div class="feature-card">
+            <i data-lucide="sparkles" class="feature-icon"></i>
+            <h3 class="card-title">Create your profile</h3>
+            <p class="card-text">
+              Share education, career, family background and horoscope details in one guided form.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <i data-lucide="search" class="feature-icon"></i>
+            <h3 class="card-title">Search with real filters</h3>
+            <p class="card-text">
+              Age, height, city, religion, community, profession and income — narrow to what matters.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <i data-lucide="heart" class="feature-icon"></i>
+            <h3 class="card-title">Express interest</h3>
+            <p class="card-text">
+              Shortlist quietly, send an interest, and connect only when both sides say yes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Featured Verified Profiles Showcase -->
+    <section class="section-featured-profiles">
+      <div class="container">
+        <div class="section-header-flex">
+          <div>
+            <h2 class="section-title serif" style="margin-bottom: 0.3rem;">Featured verified profiles</h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted);">Explore recently authenticated profiles looking for meaningful commitments.</p>
+          </div>
+          <button onclick="navigateTo('browse')" class="btn-all-stories">View all matches</button>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Profile 1 -->
+          <div class="profile-card">
+            <div class="profile-card-img" style="background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop');">
+              <span class="profile-badge"><i data-lucide="shield-check"></i> ID Verified</span>
+            </div>
+            <div class="profile-body">
+              <div>
+                <h3 class="profile-name serif">Pooja Sharma, 27</h3>
+                <p class="profile-profession">Software Architect</p>
+                <ul class="profile-details-list">
+                  <li><i data-lucide="map-pin"></i> Mumbai, Maharashtra</li>
+                  <li><i data-lucide="graduation-cap"></i> B.Tech — IIT Bombay</li>
+                  <li><i data-lucide="users"></i> Hindu, Brahmin</li>
+                </ul>
+              </div>
+              <button onclick="openModal('registerModal')" class="btn-secondary" style="width: 100%; padding: 0.5rem;">Connect with family</button>
+            </div>
+          </div>
+
+          <!-- Profile 2 -->
+          <div class="profile-card">
+            <div class="profile-card-img" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop');">
+              <span class="profile-badge"><i data-lucide="shield-check"></i> ID Verified</span>
+            </div>
+            <div class="profile-body">
+              <div>
+                <h3 class="profile-name serif">Devendra Mehta, 30</h3>
+                <p class="profile-profession">Senior Financial Analyst</p>
+                <ul class="profile-details-list">
+                  <li><i data-lucide="map-pin"></i> Bengaluru, Karnataka</li>
+                  <li><i data-lucide="graduation-cap"></i> MBA (Finance) — IIM</li>
+                  <li><i data-lucide="users"></i> Jain, Shwetambar</li>
+                </ul>
+              </div>
+              <button onclick="openModal('registerModal')" class="btn-secondary" style="width: 100%; padding: 0.5rem;">Connect with family</button>
+            </div>
+          </div>
+
+          <!-- Profile 3 -->
+          <div class="profile-card">
+            <div class="profile-card-img" style="background-image: url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop');">
+              <span class="profile-badge"><i data-lucide="shield-check"></i> ID Verified</span>
+            </div>
+            <div class="profile-body">
+              <div>
+                <h3 class="profile-name serif">Ananya Iyer, 28</h3>
+                <p class="profile-profession">Pediatric Consultant</p>
+                <ul class="profile-details-list">
+                  <li><i data-lucide="map-pin"></i> Chennai, Tamil Nadu</li>
+                  <li><i data-lucide="graduation-cap"></i> MD (Pediatrics)</li>
+                  <li><i data-lucide="users"></i> Hindu, Iyer</li>
+                </ul>
+              </div>
+              <button onclick="openModal('registerModal')" class="btn-secondary" style="width: 100%; padding: 0.5rem;">Connect with family</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Safety, Privacy & Trust Pillars -->
+    <section class="section-safety-pillars">
+      <div class="container">
+        <h2 class="section-title serif" style="margin-bottom: 0.4rem;">Trust &amp; safety at the core</h2>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2.8rem;">Every introduction on Sindoor is built upon strict verification checks and absolute data integrity.</p>
+
+        <div class="safety-grid">
+          <div class="safety-item">
+            <div class="safety-item-icon">
+              <i data-lucide="user-check"></i>
+            </div>
+            <h3 class="card-title">Government ID Checks</h3>
+            <p class="card-text">Every candidate goes through official Aadhaar/Passport verification badges before contacting members.</p>
+          </div>
+
+          <div class="safety-item">
+            <div class="safety-item-icon">
+              <i data-lucide="eye-off"></i>
+            </div>
+            <h3 class="card-title">Photo Privacy Locks</h3>
+            <p class="card-text">Control exactly who views your portraits and album photos with one-click privacy permissions.</p>
+          </div>
+
+          <div class="safety-item">
+            <div class="safety-item-icon">
+              <i data-lucide="shield-alert"></i>
+            </div>
+            <h3 class="card-title">100% Anti-Spam Control</h3>
+            <p class="card-text">Zero automated spam bots. Unverified or suspicious profiles are eliminated within minutes by our moderators.</p>
+          </div>
+
+          <div class="safety-item">
+            <div class="safety-item-icon">
+              <i data-lucide="users"></i>
+            </div>
+            <h3 class="card-title">Direct Family Circles</h3>
+            <p class="card-text">Connect directly between parents and elder relatives for traditional, respectful matchmaking discussions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Stories Preview Section -->
+    <section class="section-stories-preview">
+      <div class="container">
+        <div class="section-header-flex">
+          <h2 class="section-title serif" style="margin-bottom: 0;">Stories that started here</h2>
+          <a onclick="navigateTo('stories')" class="btn-all-stories">All stories</a>
+        </div>
+
+        <div class="cards-grid">
+          <div class="home-story-card">
+            <p class="card-text" style="margin-bottom: 1.5rem;">
+              “We matched on a Tuesday and talked for six hours straight. Our families met a month later, and the rest wrote itself.”
+            </p>
+            <div>
+              <h4 class="story-names serif" style="font-size: 1.05rem;">Aarav &amp; Meera</h4>
+              <p class="story-meta" style="margin-bottom: 0;">Pune</p>
+            </div>
+          </div>
+
+          <div class="home-story-card">
+            <p class="card-text" style="margin-bottom: 1.5rem;">
+              “Both of us had almost given up on matrimony sites. One thoughtful interest note changed that completely.”
+            </p>
+            <div>
+              <h4 class="story-names serif" style="font-size: 1.05rem;">Rohan &amp; Ishita</h4>
+              <p class="story-meta" style="margin-bottom: 0;">Bengaluru</p>
+            </div>
+          </div>
+
+          <div class="home-story-card">
+            <p class="card-text" style="margin-bottom: 1.5rem;">
+              “Shared values, shared humour, and two families that got along instantly. Grateful every single day.”
+            </p>
+            <div>
+              <h4 class="story-names serif" style="font-size: 1.05rem;">Imran &amp; Sana</h4>
+              <p class="story-meta" style="margin-bottom: 0;">Hyderabad</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Interactive Community FAQ Accordion -->
+    <section class="section-faq">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 3rem;">
+          <h2 class="section-title serif" style="margin-bottom: 0.5rem;">Frequently asked questions</h2>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">Have questions about how Sindoor Matrimony protects your identity and facilitates genuine matches?</p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-accordion-item active">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>How does Sindoor verify user profiles and identities?</span>
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Every profile requires two-step mobile OTP verification, valid identity proof submission, and manual inspection by our compliance moderators before full search activation.
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Are my photos and personal phone number visible publicly?</span>
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              No. Your phone number and private photo albums remain concealed until you personally accept an interest request and authorize direct family contact.
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>Can parents or guardians manage the account on behalf of the candidate?</span>
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Yes. Over 65% of Sindoor profiles are collaboratively maintained by parents and candidates, ensuring respect for family traditions throughout the matchmaking process.
+            </div>
+          </div>
+
+          <div class="faq-accordion-item">
+            <button class="faq-question-btn" onclick="toggleFaq(this)">
+              <span>What is the difference between Free and Premium memberships?</span>
+              <i data-lucide="chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Free plans allow full profile registration and search filters. Premium Gold &amp; Diamond memberships unlock unlimited direct contact exchange, profile highlights, and personalized relationship managers.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Final High-Conversion Action Banner -->
+    <section class="section-cta-banner">
+      <div class="container">
+        <div class="cta-banner-content">
+          <h2 class="cta-banner-title serif">Begin your sacred journey with trusted families today.</h2>
+          <p class="cta-banner-subtitle">Create a complimentary profile in less than two minutes. Connect only when values and aspirations align.</p>
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn-primary" style="background-color: var(--accent-gold); color: #2b2320; font-weight: 700;" onclick="openModal('registerModal')">Register free profile</button>
+            <button class="btn-secondary" style="background: transparent; color: #fff; border-color: rgba(255,255,255,0.4);" onclick="navigateTo('membership')">View membership tiers</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PAGE 2: BROWSE PROFILES ==================== -->
+  <main id="page-browse" class="page-view">
+    <div class="container page-container-browse">
+      <h1 class="page-heading-title serif">Browse profiles</h1>
+
+      <div class="browse-grid">
+        <!-- Sidebar Filter Card -->
+        <aside class="filter-card">
+          <h2 class="filter-heading">Filters</h2>
+          <form onsubmit="event.preventDefault();">
+            <div class="form-group">
+              <label class="form-label" for="looking-for">Looking for</label>
+              <select id="looking-for" class="form-control">
+                <option value="anyone">Anyone</option>
+                <option value="bride">Bride</option>
+                <option value="groom">Groom</option>
+              </select>
+            </div>
+
+            <div class="form-group form-row">
+              <div>
+                <label class="form-label" for="min-age">Min age</label>
+                <input type="number" id="min-age" class="form-control">
+              </div>
+              <div>
+                <label class="form-label" for="max-age">Max age</label>
+                <input type="number" id="max-age" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="city">City</label>
+              <input type="text" id="city" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="religion">Religion</label>
+              <select id="religion" class="form-control">
+                <option value="any">Any</option>
+                <option value="hindu">Hindu</option>
+                <option value="muslim">Muslim</option>
+                <option value="sikh">Sikh</option>
+                <option value="christian">Christian</option>
+                <option value="jain">Jain</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="community">Community / caste</label>
+              <input type="text" id="community" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="profession">Profession</label>
+              <input type="text" id="profession" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="min-income">Min annual income (₹)</label>
+              <input type="text" id="min-income" class="form-control">
+            </div>
+
+            <div class="filter-actions">
+              <button type="submit" class="btn-primary">Apply</button>
+              <button type="reset" class="btn-secondary">Reset</button>
+            </div>
+          </form>
+        </aside>
+
+        <!-- Profile Results Section -->
+        <section class="empty-state-card">
+          <p>No approved profiles match these filters yet.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== PAGE 3: SUCCESS STORIES ==================== -->
+  <main id="page-stories" class="page-view">
+    <div class="container page-container-stories">
+      <div class="stories-max-wrapper">
+        <h1 class="page-heading-title serif">Success stories</h1>
+        <p class="page-heading-subtitle">Every story here started with one thoughtful introduction.</p>
+
+        <div class="stories-stack">
+          <!-- Story 1 -->
+          <article class="story-list-card">
+            <h2 class="story-names serif">Imran &amp; Sana</h2>
+            <p class="story-meta">Hyderabad · Married 5/8/2025</p>
+            <p class="story-body">
+              Shared values, shared humour, and two families that got along instantly. Grateful every single day.
+            </p>
+          </article>
+
+          <!-- Story 2 -->
+          <article class="story-list-card">
+            <h2 class="story-names serif">Aarav &amp; Meera</h2>
+            <p class="story-meta">Pune · Married 2/14/2025</p>
+            <p class="story-body">
+              We matched on a Tuesday and talked for six hours straight. Our families met a month later, and the rest wrote itself.
+            </p>
+          </article>
+
+          <!-- Story 3 -->
+          <article class="story-list-card">
+            <h2 class="story-names serif">Rohan &amp; Ishita</h2>
+            <p class="story-meta">Bengaluru · Married 11/23/2024</p>
+            <p class="story-body">
+              Both of us had almost given up on matrimony sites. One thoughtful interest note changed that completely.
+            </p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== PAGE 4: MEMBERSHIP PLANS ==================== -->
+  <main id="page-membership" class="page-view">
+    <div class="container page-container-membership">
+      <div style="max-width: 600px; margin-bottom: 3rem;">
+        <h1 class="page-heading-title serif">Membership plans</h1>
+        <p class="page-heading-subtitle" style="margin-bottom: 0;">
+          Start free. Upgrade when you are ready to talk to families directly. Payment checkout is the next milestone — plans below are the live pricing structure.
+        </p>
+      </div>
+
+      <!-- Pricing Plans Grid -->
+      <div class="pricing-grid">
+        <!-- Free Plan -->
+        <div class="pricing-card">
+          <div>
+            <div class="plan-header">
+              <h2 class="plan-name serif">Free</h2>
+              <div class="plan-price-wrapper">
+                <span class="plan-price">₹0</span>
+                <span class="plan-duration">/ forever</span>
+              </div>
+            </div>
+
+            <ul class="plan-features">
+              <li>
+                <i data-lucide="check"></i>
+                <span>Create a full profile</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>Browse and search all profiles</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>Shortlist up to 20 profiles</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>Send 5 interests per month</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="btn-card-secondary" onclick="openModal('registerModal')">Get started</button>
+          </div>
+        </div>
+
+        <!-- Gold Plan (Featured) -->
+        <div class="pricing-card featured">
+          <span class="badge-featured">Most chosen</span>
+          <div>
+            <div class="plan-header">
+              <h2 class="plan-name serif">Gold</h2>
+              <div class="plan-price-wrapper">
+                <span class="plan-price">₹2,499</span>
+                <span class="plan-duration">/ 3 months</span>
+              </div>
+            </div>
+
+            <ul class="plan-features">
+              <li>
+                <i data-lucide="check"></i>
+                <span>Unlimited interests</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>View contact details of accepted matches</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>See who viewed your profile</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>Priority in search results</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="btn-card-primary" onclick="openModal('registerModal')">Get started</button>
+          </div>
+        </div>
+
+        <!-- Diamond Plan -->
+        <div class="pricing-card">
+          <div>
+            <div class="plan-header">
+              <h2 class="plan-name serif">Diamond</h2>
+              <div class="plan-price-wrapper">
+                <span class="plan-price">₹5,999</span>
+                <span class="plan-duration">/ 12 months</span>
+              </div>
+            </div>
+
+            <ul class="plan-features">
+              <li>
+                <i data-lucide="check"></i>
+                <span>Everything in Gold</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>Dedicated relationship manager</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>Profile highlighted across the site</span>
+              </li>
+              <li>
+                <i data-lucide="check"></i>
+                <span>Horoscope compatibility reports</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="btn-card-secondary" onclick="openModal('registerModal')">Get started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== AUTH MODALS ==================== -->
+  
+  <!-- Log In Modal -->
+  <div id="loginModal" class="modal-overlay" onclick="handleBackdropClick(event, 'loginModal')">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title serif">Welcome back</h2>
+          <p class="modal-subtitle">Log in to manage your profile and connections.</p>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeModal('loginModal')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form onsubmit="handleLoginSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email or Mobile Number</label>
+            <input type="text" id="login-email" class="form-control" placeholder="name@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+            <div class="form-helper">
+              <label style="display: flex; align-items: center; gap: 0.35rem; font-weight: normal; cursor: pointer;">
+                <input type="checkbox"> Remember me
+              </label>
+              <a href="javascript:void(0)" onclick="alert('Password reset link sent')">Forgot password?</a>
+            </div>
+          </div>
+
+          <div class="modal-form-actions">
+            <button type="submit" class="btn-primary">Sign in</button>
+          </div>
+
+          <div class="modal-footer-switch">
+            Don't have an account? 
+            <a onclick="switchModal('loginModal', 'registerModal')">Register free</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Registration Modal -->
+  <div id="registerModal" class="modal-overlay" onclick="handleBackdropClick(event, 'registerModal')">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title serif">Create your profile</h2>
+          <p class="modal-subtitle">Find genuine matches screened with utmost care.</p>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeModal('registerModal')">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form onsubmit="handleRegisterSubmit(event)">
+          <div class="form-group form-row">
+            <div>
+              <label class="form-label" for="reg-profile-for">Profile created for</label>
+              <select id="reg-profile-for" class="form-control" required>
+                <option value="self">Myself</option>
+                <option value="son">Son</option>
+                <option value="daughter">Daughter</option>
+                <option value="brother">Brother</option>
+                <option value="sister">Sister</option>
+                <option value="friend">Friend / Relative</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="reg-gender">Gender</label>
+              <select id="reg-gender" class="form-control" required>
+                <option value="female">Bride (Female)</option>
+                <option value="male">Groom (Male)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div>
+              <label class="form-label" for="reg-fname">First name</label>
+              <input type="text" id="reg-fname" class="form-control" placeholder="Aarav" required>
+            </div>
+            <div>
+              <label class="form-label" for="reg-lname">Last name</label>
+              <input type="text" id="reg-lname" class="form-control" placeholder="Sharma" required>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div>
+              <label class="form-label" for="reg-email">Email address</label>
+              <input type="email" id="reg-email" class="form-control" placeholder="aarav@example.com" required>
+            </div>
+            <div>
+              <label class="form-label" for="reg-phone">Phone number</label>
+              <input type="tel" id="reg-phone" class="form-control" placeholder="+91 98765 43210" required>
+            </div>
+          </div>
+
+          <div class="form-group form-row">
+            <div>
+              <label class="form-label" for="reg-religion">Religion / Community</label>
+              <input type="text" id="reg-religion" class="form-control" placeholder="e.g. Hindu / Brahmin">
+            </div>
+            <div>
+              <label class="form-label" for="reg-city">Current City</label>
+              <input type="text" id="reg-city" class="form-control" placeholder="e.g. Pune, Maharashtra" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-password">Set password</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="Minimum 8 characters" required minlength="8">
+          </div>
+
+          <div class="modal-form-actions">
+            <button type="submit" class="btn-primary">Register Free Profile</button>
+          </div>
+
+          <div class="modal-footer-switch">
+            Already have an account? 
+            <a onclick="switchModal('registerModal', 'loginModal')">Log in</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <p class="footer-brand">Sindoor Matrimony</p>
+          <p class="footer-text">
+            Verified profiles, respectful introductions, and families at the centre of every match.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Members</h4>
+          <ul class="footer-links">
+            <li><a onclick="navigateTo('browse')">Browse profiles</a></li>
+            <li><a onclick="navigateTo('browse')">My matches</a></li>
+            <li><a onclick="openModal('loginModal')">My profile</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a onclick="navigateTo('stories')">Success stories</a></li>
+            <li><a onclick="navigateTo('membership')">Membership plans</a></li>
+            <li><a href="javascript:void(0)" onclick="openModal('loginModal')">Admin panel</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Safety</h4>
+          <p class="footer-text">
+            Every profile is screened before it goes live. Contact details and photos stay private until you choose to share them.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Sindoor Matrimony. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SPA Router, Modals, Accordion & Hero Slider Scripts -->
+  <script>
+    /* --- Page Navigation --- */
+    function navigateTo(pageId) {
+      document.querySelectorAll('.page-view').forEach(page => {
+        page.classList.remove('active');
+      });
+
+      const targetPage = document.getElementById('page-' + pageId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+      });
+      const activeNav = document.getElementById('nav-' + pageId);
+      if (activeNav) {
+        activeNav.classList.add('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.pushState(null, null, '#' + pageId);
+    }
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      drawer.classList.toggle('open');
+    }
+
+    /* --- Hero Slider Logic --- */
+    let currentSlide = 0;
+    let sliderInterval = null;
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+
+    function showSlide(index) {
+      if (!slides.length) return;
+      
+      if (index >= slides.length) currentSlide = 0;
+      else if (index < 0) currentSlide = slides.length - 1;
+      else currentSlide = index;
+
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === currentSlide);
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlide);
+      });
+    }
+
+    function changeHeroSlide(direction) {
+      showSlide(currentSlide + direction);
+    }
+
+    function goToHeroSlide(index) {
+      showSlide(index);
+    }
+
+    function startHeroSlider() {
+      if (!sliderInterval) {
+        sliderInterval = setInterval(() => {
+          showSlide(currentSlide + 1);
+        }, 5500);
+      }
+    }
+
+    function pauseHeroSlider() {
+      clearInterval(sliderInterval);
+      sliderInterval = null;
+    }
+
+    /* --- Accordion FAQ Logic --- */
+    function toggleFaq(btn) {
+      const parent = btn.closest('.faq-accordion-item');
+      const isOpen = parent.classList.contains('active');
+      
+      // Close other open accordion items
+      document.querySelectorAll('.faq-accordion-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      if (!isOpen) {
+        parent.classList.add('active');
+      }
+    }
+
+    /* --- Modal Controls --- */
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    function switchModal(closeId, openId) {
+      closeModal(closeId);
+      setTimeout(() => {
+        openModal(openId);
+      }, 150);
+    }
+
+    function handleBackdropClick(event, modalId) {
+      if (event.target.id === modalId) {
+        closeModal(modalId);
+      }
+    }
+
+    /* --- Form Submission Handlers --- */
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value;
+      alert(`Logged in successfully as: ${email}`);
+      closeModal('loginModal');
+    }
+
+    function handleRegisterSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('reg-fname').value;
+      alert(`Thank you, ${name}! Your profile has been registered and is pending verification.`);
+      closeModal('registerModal');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+          modal.classList.remove('active');
+        });
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.replace('#', '') || 'home';
+      navigateTo(hash);
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      startHeroSlider();
+      const hash = window.location.hash.replace('#', '');
+      if (['home', 'browse', 'stories', 'membership'].includes(hash)) {
+        navigateTo(hash);
+      }
+    });
+  </script>
+</body>
+</html>
